@@ -4,8 +4,9 @@ pandas
 scikit-learn
 matplotlib==3.10.0
 pillow==11.1.0
-opencv-python  # If using OpenCV
+opencv-python-headless
 requests
 python-dateutil==2.9.0.post0
 pyparsing==3.2.1
 six==1.17.0
+
