@@ -13,7 +13,7 @@ OBJECTIVE = (
 )
 
 # --- Load Data ---
-summary = pd.read_csv("search_relavancy/metrics_summary.csv", index_col=0)
+summary = pd.read_csv("../search_relavancy/metrics_summary.csv", index_col=0)
 
 # --- Streamlit Layout ---
 st.set_page_config(page_title=PAGE_TITLE, layout="wide")
