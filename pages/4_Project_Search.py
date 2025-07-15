@@ -13,7 +13,7 @@ OBJECTIVE = (
 )
 
 # --- Load Data ---
-summary = pd.read_csv("search_relevancy/metrics_summary.csv")
+# summary = pd.read_csv("search_relevancy/metrics_summary.csv")
 # print(summary.head)
 
 
@@ -46,23 +46,23 @@ st.markdown(
     "The table below summarizes the performance of the two search engines over our curated 20-query test set. "
     "Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR)."
 )
-st.table(summary)
+# st.table(summary)
 
-col1, col2 = st.columns(2)
-with col1:
-    st.subheader("Precision@10 & Recall@10")
-    st.bar_chart(summary[["P@10","R@10"]])
-    st.markdown(
-        "- **Precision@10** measures the proportion of relevant results in the top 10."
-        "- **Recall@10** measures the proportion of all relevant items retrieved in the top 10."
-    )
-with col2:
-    st.subheader("nDCG@10 & MRR")
-    st.line_chart(summary[["nDCG@10","RR"]])
-    st.markdown(
-        "- **nDCG@10** accounts for both relevance and ranking position."
-        "- **Mean Reciprocal Rank (MRR)** captures how soon the first relevant item appears."
-    )
+# col1, col2 = st.columns(2)
+# with col1:
+#     st.subheader("Precision@10 & Recall@10")
+#     st.bar_chart(summary[["P@10","R@10"]])
+#     st.markdown(
+#         "- **Precision@10** measures the proportion of relevant results in the top 10."
+#         "- **Recall@10** measures the proportion of all relevant items retrieved in the top 10."
+#     )
+# with col2:
+#     st.subheader("nDCG@10 & MRR")
+#     st.line_chart(summary[["nDCG@10","RR"]])
+#     st.markdown(
+#         "- **nDCG@10** accounts for both relevance and ranking position."
+#         "- **Mean Reciprocal Rank (MRR)** captures how soon the first relevant item appears."
+#     )
 
 st.markdown("---")
 
