@@ -27,7 +27,7 @@ st.markdown(f"**Role:** {ROLE}  ")
 st.markdown(f"**Year:** {YEAR}  ")
 st.markdown(
     "**Data Source:** "
-    "[UCI Online Retail Dataset]"
+    "[UCI Online Retail Dataset (~4000 products)]"
     "(https://archive.ics.uci.edu/dataset/352/online+retail)"
 )
 st.markdown(f"**Technology Stack:** {', '.join(TECH_STACK)}")
@@ -49,7 +49,7 @@ st.markdown("")
 
 ## Evaluation Results
 st.subheader("Average Retrieval Metrics")
-st.markdown("- The table below summarizes the performance of the two search engines over our curated 20-query test set.")
+st.markdown("- The table below summarizes the performance of the two search engines over our curated 10-query test set.")
 st.markdown("- Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR).")
 
 st.table(summary)
@@ -58,17 +58,13 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("##### Precision@10 & Recall@10")
     st.bar_chart(summary[["P@10","R@10"]])
-    st.markdown(
-        "- **Precision@10** measures the proportion of relevant results in the top 10."
-        "- **Recall@10** measures the proportion of all relevant items retrieved in the top 10."
-    )
+    st.markdown("- **Precision@10** measures the proportion of relevant results in the top 10.")
+    st.markdown("- **Recall@10** measures the proportion of all relevant items retrieved in the top 10.")
 with col2:
     st.markdown("##### nDCG@10 & MRR")
     st.line_chart(summary[["nDCG@10","RR"]])
-    st.markdown(
-        "- **nDCG@10** accounts for both relevance and ranking position."
-        "- **Mean Reciprocal Rank (MRR)** captures how soon the first relevant item appears."
-    )
+    st.markdown("- **nDCG@10** accounts for both relevance and ranking position")
+    st.markdown("- **Mean Reciprocal Rank (MRR)** captures how soon the first relevant item appears.")
 
 st.markdown("")
 
