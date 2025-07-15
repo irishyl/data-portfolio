@@ -14,8 +14,8 @@ OBJECTIVE = (
 )
 
 # --- Load Data ---
-# summary = pd.read_csv("search_relevancy/metrics_summary.csv")
-# print(summary.head)
+summary = pd.read_csv("search_relevancy/metrics_summary.csv")
+print(summary.head)
 
 
 # --- Streamlit Layout ---
