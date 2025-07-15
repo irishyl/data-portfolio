@@ -1,0 +1,49 @@
+Scrape / Ingest ~200 products in one category (e.g., drills) into a CSV.
+
+Build a retrieval index (start with Whoosh or Elasticsearch) and expose a Python function retrieve(query) -> top5 IDs.
+
+Hook up embeddings + FAISS to compare semantic vs. lexical retrieval.
+
+Wrap in an LLM prompt that takes the retrieved items and generates a user-friendly recommendation.
+
+Demo UI: a minimal Streamlit or simple HTML+JS page with a search box, result cards, and a chat panel.
+
+
+
+End-to-End Pipeline
+You’ll demonstrate skills across the stack:
+
+Data ingestion (web scraping or public API)
+
+ETL & indexing (preparing a catalog for retrieval)
+
+Vector search & ranking (using embeddings + FAISS or Whoosh/BM25)
+
+LLM prompt engineering (RAG style: “retrieve relevant items, then let the LLM craft recommendations”)
+
+API or UI layer (FastAPI + simple web front-end or chat UI)
+
+Search & IR Fundamentals
+Building your own retrieval layer shows you understand:
+
+Tokenization, TF-IDF/BM25 baseline
+
+Semantic embeddings (SentenceTransformers, OpenAI embeddings)
+
+Relevance scoring & reranking
+
+Machine Learning & Evaluation
+You can turn it into a true “data science” project by:
+
+Measuring retrieval quality (precision@k, recall@k) on a small labeled set (“Does the top-5 include the right product?”)
+
+A/B testing prompt variants or reranking strategies
+
+Real-World Domain
+Using a real catalog (Home Depot’s!) makes it more compelling than toy data. It shows you can handle messy product data (descriptions, categories, prices, images).
+
+LLM Integration
+Wrapping retrieval in an LLM so it can answer:
+
+“I need a durable outdoor drill under $150—what do you recommend?”
+…demonstrates you know modern “retrieval-augmented generation” techniques.

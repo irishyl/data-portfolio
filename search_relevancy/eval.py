@@ -49,3 +49,5 @@ df = pd.DataFrame(results)
 # Now group by Engine and average the metrics
 summary = df.groupby("Engine")[[f"P@{K}", f"R@{K}", f"nDCG@{K}", "RR"]].mean()
 print(summary)
+
+summary.to_csv("metrics_summary.csv", index=True)

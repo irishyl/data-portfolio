@@ -14,7 +14,7 @@ OBJECTIVE = (
 )
 
 # --- Load Data ---
-summary = pd.read_csv("4_metrics_summary.csv")
+summary = pd.read_csv("pages/4_metrics_summary.csv")
 # print(summary.head)
 
 
