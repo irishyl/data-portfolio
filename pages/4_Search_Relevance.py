@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import textwrap
 
 # --- Configuration ---
 PAGE_TITLE = "🔬 Search Relevance Evaluation"
@@ -34,23 +35,28 @@ st.subheader("Objective")
 st.markdown(OBJECTIVE)
 
 st.subheader("Methodology")
-st.markdown(
-"""
-- **Schema & Indexing**: Used Whoosh for a quick TF-IDF prototype; deployed Elasticsearch via Docker for BM25.
-- **Test Set**: Curated 10 real-world queries and hand-labeled 3–5 relevant SKUs each.
-- **Metrics Computation**: Calculated P@10, R@10, nDCG@10, and MRR using Python scripts against both engines.
-"""
-)
+# st.markdown(
+# """
+# - **Schema & Indexing**: Used Whoosh for a quick TF-IDF prototype; deployed Elasticsearch via Docker for BM25.
+# - **Test Set**: Curated 10 real-world queries and hand-labeled 3–5 relevant SKUs each.
+# - **Metrics Computation**: Calculated P@10, R@10, nDCG@10, and MRR using Python scripts against both engines.
+# """
+# )
 
+st.write(
+    "- **Schema & Indexing:** Used Whoosh for a quick TF‑IDF prototype; deployed Elasticsearch via Docker for BM25.",
+    "- **Test Set:** Curated 10 real‑world queries and hand‑labeled 3–5 relevant SKUs each.",
+    "- **Metrics Computation:** Calculated P@10, R@10, nDCG@10, and MRR using Python scripts against both engines.",
+)
 
 ## Evaluation Results
 st.subheader("Average Retrieval Metrics")
-st.markdown(
-"""
-- The table below summarizes the performance of the two search engines over our curated 20-query test set. "
-- Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR).
-"""
-)
+points = [
+    "- The table below summarizes the performance of the two search engines over our curated 20-query test set.",
+    "Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR).",
+]
+st.markdown("\n".join(f"- {p}" for p in points))
+
 # st.table(summary)
 
 # col1, col2 = st.columns(2)
@@ -71,13 +77,21 @@ st.markdown(
 
 ## Key Insights
 st.subheader("Key Insights")
-st.markdown(
-"""
-1. **Elasticsearch (BM25)** achieved a Precision@10 of ~0.66 vs. Whoosh’s ~0.49, indicating more relevant items in the top results.
-2. Recall@10 improved from 0.40 (TF-IDF) to 0.60 (BM25), showing better coverage of relevant products.
-3. nDCG@10 rose from 0.65 to 0.82, reflecting stronger ranking quality under BM25.
-4. MRR of 1.0 for Elasticsearch means every first result was relevant, compared to 0.86 for Whoosh.
-"""
-)
+# st.markdown(
+# """
+# 1. **Elasticsearch (BM25)** achieved a Precision@10 of ~0.66 vs. Whoosh’s ~0.49, indicating more relevant items in the top results.
+# 2. Recall@10 improved from 0.40 (TF-IDF) to 0.60 (BM25), showing better coverage of relevant products.
+# 3. nDCG@10 rose from 0.65 to 0.82, reflecting stronger ranking quality under BM25.
+# 4. MRR of 1.0 for Elasticsearch means every first result was relevant, compared to 0.86 for Whoosh.
+# """
+# )
+
+md = textwrap.dedent("""
+    1. **Elasticsearch (BM25)** achieved a Precision@10 of ~0.66 vs. Whoosh’s ~0.49, indicating more relevant items in the top results.
+    2. **Recall@10** improved from 0.40 (TF‑IDF) to 0.60 (BM25), showing better coverage of relevant products.
+    3. **nDCG@10** rose from 0.65 to 0.82, reflecting stronger ranking quality under BM25.
+    4. **MRR** of 1.0 for Elasticsearch means every first result was relevant, compared to 0.86 for Whoosh.
+""")
+st.markdown(md)
 
 
