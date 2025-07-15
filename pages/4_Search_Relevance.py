@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # --- Configuration ---
-PAGE_TITLE = "🔬 Search Engine Evaluation"
+PAGE_TITLE = "🔬 Search Relevance Evaluation"
 CLIENT = "Personal Project"
 ROLE = "Data Scientist"
 YEAR = "2025"
@@ -22,23 +22,24 @@ st.set_page_config(page_title=PAGE_TITLE, layout="wide")
 st.title(PAGE_TITLE)
 
 ## Project Overview
+st.subheader("Project Overview")
 st.markdown(f"**Client:** {CLIENT}  ")
 st.markdown(f"**Role:** {ROLE}  ")
 st.markdown(f"**Year:** {YEAR}  ")
 st.markdown(f"**Data Source:** {DATA_SOURCE}  ")
-st.markdown(f"**Objective:** {OBJECTIVE}")
 st.markdown(f"**Technology Stack:** {', '.join(TECH_STACK)}")
 
-st.markdown("---")
+# st.markdown("---")
+st.subheader("Objective")
+st.markdown(OBJECTIVE)
 
-## Methodology
+st.subheader("Methodology")
 st.markdown(
     "- **Schema & Indexing**: Used Whoosh for a quick TF-IDF prototype; deployed Elasticsearch via Docker for BM25."
     "- **Test Set**: Curated 10 real-world queries and hand-labeled 3–5 relevant SKUs each."
     "- **Metrics Computation**: Calculated P@10, R@10, nDCG@10, and MRR using Python scripts against both engines."
 )
 
-st.markdown("---")
 
 ## Evaluation Results
 st.subheader("Average Retrieval Metrics")
@@ -67,6 +68,7 @@ st.markdown(
 st.markdown("---")
 
 ## Key Insights
+st.subheader("Key Insights")
 st.markdown(
     "1. **Elasticsearch (BM25)** achieved a Precision@10 of ~0.66 vs. Whoosh’s ~0.49, indicating more relevant items in the top results."
     "2. Recall@10 improved from 0.40 (TF-IDF) to 0.60 (BM25), showing better coverage of relevant products."
