@@ -43,7 +43,7 @@ st.markdown("- **Metrics Computation**: Calculated P@10, R@10, nDCG@10, and MRR 
 ## Evaluation Results
 st.subheader("Average Retrieval Metrics")
 st.markdown("- The table below summarizes the performance of the two search engines over our curated 20-query test set.")
-st.markdown("Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR).")
+st.markdown("- Metrics include Precision@10, Recall@10, nDCG@10, and Mean Reciprocal Rank (MRR).")
 
 # st.table(summary)
 
